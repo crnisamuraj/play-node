@@ -1,3 +1,4 @@
+//this script is executed by loading Index.html in browser
 let list = [3, 4, -10, 'test'];
 console.log('original', list);
 
