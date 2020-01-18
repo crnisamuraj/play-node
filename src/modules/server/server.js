@@ -1,10 +1,20 @@
 const http = require('http');
 
+const express = require('express');
+const bodyParser = require('body-parser');
 
 class Server {
-	constructor(router) {
-		this.router = router;
-		this.http = http.createServer(this.router);
+	constructor(routerLegacy) {
+
+		this.routerLegacy = routerLegacy;
+		this.app = express();
+
+		this.app.use(bodyParser.urlencoded({ extended: true }));
+
+		this.app.use('/test', require('../router/test.js'));
+
+		this.http = http.createServer(this.app);
+
 		this.errorCount = 0;
 		this.http.on('error', e => this.retry(e));
 	};

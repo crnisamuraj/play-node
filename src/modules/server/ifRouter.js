@@ -18,12 +18,13 @@ const router = (req, res) => {
 		});
 		req.on('end', () => {
 			const parsedBody = Buffer.concat(body).toString();
-			console.log(parsedBody);
-			const message = parsedBody.split('=')[1];
+			console.log(String.prototype.concat('raw body:\n', parsedBody));
+			let message = parsedBody.split('=')[1].replace(/\x2B/g, ' ');
+			console.log(String.prototype.concat('parsed message:\n', message));
 			fs.appendFile(
-				'message.txt', 
-				message + '\n', 
-				(err) => console.log('done')
+				'dataLog.txt', 
+				message + '\n',
+				(err) => {if (err) console.error(err);}
 			);
 		});
 		res.statusCode = 302;

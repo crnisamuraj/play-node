@@ -1,0 +1,27 @@
+Tesing+input+field+and+parsing+incoming+request+body
+testing+input+field+did+i+just+send+%2B%3F
+can+spaces+work+now%3F+parsing+them+with+for+loop
+spac+s+s+s
+s+s+s
+s+s+s+s
+s+s+s+s
+s+s+s+s
+s+s+s+s
+s s+s+s
+s s+s+s
+s+s+s+s
+s+s+s+s
+s s s s
+s s s s
+s s s s
+s s s s
+s s s s
+s s s s
+s s s s
+s s s s
+s s s s
+s s s s
+testig how it work
+here wee gooo
+cant process special char %5B%5D%3B%27%5C123433242%2F.%2C%2F
+12313 123 231
