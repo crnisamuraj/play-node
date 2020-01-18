@@ -5,6 +5,7 @@ services:
     build: .
     ports:
       - "5050:5050"
+      - "5151:5151"
     volumes: 
       - .:/usr/src/promise
     environment: 

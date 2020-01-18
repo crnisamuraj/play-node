@@ -21,14 +21,14 @@ class Server {
 
 	};
 
-	startServer(port, host) {
+	startExpressServer(port, host) {
 		
 		this.http = http.createServer(this.app);
 
 		this.errorCount = 0;
 		this.http.on('error', e => this.retry(e));
 
-		this.http.listen(port, host, () => console.log('server is running on port:', port))
+		this.http.listen(port, host, () => console.log('express server is running on port:', port))
 	};
 
 	startNodeServer(port, host) {
@@ -36,7 +36,7 @@ class Server {
 
 		this.errorCount = 0;
 		this.http.on('error', e => this.retry(e));
-		this.http.listen(port, host, () => console.log('server is running on port:', port))
+		this.http.listen(port, host, () => console.log('pure node server is running on port:', port))
 	};
 
 	retry(e) {

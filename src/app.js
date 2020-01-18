@@ -5,13 +5,15 @@
 //reduce.run();
 
 //Pure node http server
-const server = new (require('./modules/server/server')).Server(require('./modules/nodeRouter'));
+const server = new (require('./server/server')).Server(require('./server/router/nodeRouter'));
 
 const port = process.env.PORT || 5050;
 
 const host = process.env.HOST || '0.0.0.0';
 
-server.startServer(port, host);
+server.startExpressServer(port, host);
+
+server.startNodeServer(5151);
 
 
 
