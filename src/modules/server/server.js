@@ -6,20 +6,36 @@ const bodyParser = require('body-parser');
 class Server {
 	constructor(routerLegacy) {
 
-		this.routerLegacy = routerLegacy;
+		this.routerLegacy = routerLegacy;	
 		this.app = express();
+
 
 		this.app.use(bodyParser.urlencoded({ extended: true }));
 
-		this.app.use('/test', require('../router/test.js'));
 
+		this.app.use('/admin', require('./router/admin'));
+
+		this.app.use('/shop', require('./router/shop'));
+
+
+
+	};
+
+	startServer(port, host) {
+		
 		this.http = http.createServer(this.app);
 
 		this.errorCount = 0;
 		this.http.on('error', e => this.retry(e));
+
+		this.http.listen(port, host, () => console.log('server is running on port:', port))
 	};
 
-	startServer(port, host) {
+	startNodeServer(port, host) {
+		this.http = http.createServer(this.routerLegacy);
+
+		this.errorCount = 0;
+		this.http.on('error', e => this.retry(e));
 		this.http.listen(port, host, () => console.log('server is running on port:', port))
 	};
 

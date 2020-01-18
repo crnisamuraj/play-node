@@ -5,7 +5,7 @@
 //reduce.run();
 
 //Pure node http server
-const server = new (require('./modules/server/server')).Server(require('./modules/server/ifRouter'));
+const server = new (require('./modules/server/server')).Server(require('./modules/nodeRouter'));
 
 const port = process.env.PORT || 5050;
 
