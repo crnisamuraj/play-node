@@ -1,4 +1,5 @@
 const http = require('http');
+const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -63,7 +64,7 @@ class App {
 	};
 	
 	notFound(req, res, next) {
-		res.status(404).send('<h1>not found</h1>');
+		res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 	}
 
 }
