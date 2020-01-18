@@ -3,21 +3,27 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-class Server {
+class App {
 	constructor(routerLegacy) {
-
+		//init
 		this.routerLegacy = routerLegacy;	
 		this.app = express();
 
-
+		//body parser middleware
 		this.app.use(bodyParser.urlencoded({ extended: true }));
 
-
+		//routing middleware
 		this.app.use('/admin', require('./router/admin'));
-
 		this.app.use('/shop', require('./router/shop'));
 
-
+		//not found middleware
+		this.app.use((req, res, next) => this.notFound(req, res, next));
+		
+		//error handling
+		this.app.use((err, req, res, next) => {
+			console.error(err);
+			res.send(err);
+		});
 
 	};
 
@@ -56,8 +62,13 @@ class Server {
 		}
 	};
 	
+	notFound(req, res, next) {
+		res.status(404).send('<h1>not found</h1>');
+	}
+
 }
 
+
 module.exports = {
-	Server
+	App
 };
