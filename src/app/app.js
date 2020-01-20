@@ -13,6 +13,9 @@ class App {
 		//body parser middleware
 		this.app.use(bodyParser.urlencoded({ extended: true }));
 
+		//static middleware
+		this.app.use(express.static(path.join(path.dirname(process.mainModule.filename), '..', 'public')));
+
 		//routing middleware
 		this.app.use('/admin', require('./router/admin'));
 		this.app.use('/shop', require('./router/shop'));
@@ -35,7 +38,7 @@ class App {
 		this.errorCount = 0;
 		this.http.on('error', e => this.retry(e));
 
-		this.http.listen(port, host, () => console.log('express server is running on port:', port))
+		this.http.listen(port, host, () => console.log('express server is running on port:', port));
 	};
 
 	startNodeServer(port, host) {
@@ -43,7 +46,7 @@ class App {
 
 		this.errorCount = 0;
 		this.http.on('error', e => this.retry(e));
-		this.http.listen(port, host, () => console.log('pure node server is running on port:', port))
+		this.http.listen(port, host, () => console.log('pure node server is running on port:', port));
 	};
 
 	retry(e) {

@@ -1,7 +1,7 @@
 {
-  "name": "promise",
+  "name": "play-node",
   "version": "1.0.0",
-  "description": "promise async programing playground",
+  "description": "node programing playground",
   "main": "./src/App.js",
   "scripts": {
     "start": "node ./src/server.js",

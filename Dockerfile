@@ -1,6 +1,6 @@
 FROM node:13
 
-WORKDIR /usr/src/promise
+WORKDIR /usr/play-node
 
 # COPY package.json ./
 

@@ -7,7 +7,7 @@ services:
       - "5050:5050"
       - "5151:5151"
     volumes: 
-      - .:/usr/src/promise
+      - .:/usr/play-node
     environment: 
       HOST: 0.0.0.0
       PORT: 5050

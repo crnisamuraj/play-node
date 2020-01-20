@@ -13,7 +13,7 @@ const host = process.env.HOST || '0.0.0.0';
 
 app.startExpressServer(port, host);
 
-app.startNodeServer(5151);
+//app.startNodeServer(5151);
 
 
 
